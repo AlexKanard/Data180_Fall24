@@ -2,9 +2,9 @@
 title: "HW 1"
 subtitle: "Data 180, Professor Kessler"
 author: 
-  name: "Your Name"
-  email: "XXXX@dickinson.edu"
-date: '`r format(Sys.Date(), "%B %d, %Y")`'
+  name: "Alex Kanard"
+  email: "Kanarda@dickinson.edu"
+date: '`r format(Sys.Date(), "09, 15, 2024")`'
 output: 
   html_document
 ---
@@ -14,7 +14,54 @@ Make sure that you have accepted the hw invitation link, and working with your c
 
 **Reminder:** You can insert R code in your Rmd file as a chunk in the following way:
 ```{r}
-# Your code goes here
+
+  Person = c("Alice","Bob","Charlie","Denise","Erin","Frank","Gisele","Harry","Zachary","Aren","Mike","Hannah")
+  Preference = c("Twitter","Facebook","Twitter","Instagram","Facebook","Twitter","Twitter","Instagram","Threads","Snapchat","TikTok","Tiktok")
+my_df <- data.frame(Person, Preference)
+print(my_df)
+
+dim(my_df)
+
+total_users <- nrow(my_df)
+print(total_users)
+
+twitter_users <- nrow(my_df[my_df$Preference=="Twitter", ])
+print(twitter_users)
+
+Gisele_preferes <- ncol(my_df[my_df$Person=="Gisele", ])
+print(Gisele_preferes)
+
+my_vec <- 1:10
+print(my_vec)
+
+my_vec <- 1:99
+print(my_vec)
+
+my_func <- function(my_vec) 
+  for (element in (my_vec))
+    if (element > 5){
+      print("this element is greater then 5!")
+    } else{
+      print("this element is not greater then 5!")
+    }
+
+my_vec <- 1:99
+my_func(my_vec)
+
+get_fibonacci <- function(n) {
+  if (n <= 1) {
+    return(0) 
+  } else if (n == 2) {
+    return(1) 
+  } else{
+    return(get_fibonacci(n - 1) + get_fibonacci(n - 2)) 
+  }
+}
+get_fibonacci(5)
+get_fibonacci(7)
+
+get_fibonacci(19)
+
 ```
 Make sure to insert a chunk for each (sub)section of the assignment.
 
@@ -41,25 +88,73 @@ a) Store the data below in a data frame object named `my_df`.
 | Mike | TikTok |
 | Hannah | TikTok |
 
+
+  Person = c("Alice","Bob","Charlie","Denise","Erin","Frank","Gisele","Harry","Zachary","Aren","Mike","Hannah")
+  Preference = c("Twitter","Facebook","Twitter","Instagram","Facebook","Twitter","Twitter","Instagram","Threads","Snapchat","TikTok","Tiktok")
+my_df <- data.frame(Person, Preference)
+
+
 b) What are the dimensions of `my_df`?
+dim(my_df). 12x2
 
 c) Write R code that counts the total number of users.
+total_users <- nrow(my_df)
+print(total_users)
 
 d) Write R code that counts the total number of users who prefer Twitter.
+twitter_users <- nrow(my_df[my_df$Preference=="Twitter", ])
+print(twitter_users)
 
 e) Write R code that returns what Gisele prefers.
+Gisele_preferes <- ncol(my_df[my_df$Person=="Gisele", ])
+print(Gisele_preferes)
 
 ## Task 2
 a) Create a vector named `my_vec` that includes all integers from 1 to 10 (inclusive).
+my_vec <- 1:10
+print(my_vec)
 
 b) Replace the second element in `my_vec` with the number `99`.
+my_vec <- 1:99
+print(my_vec)
 
 c) Write a function called `my_func` that prints `This element is greater than 5!` if an element in `myvec` is greater than 5, and `This element is NOT greater than 5!` otherwise.
+
+my_func <- function(my_vec) {
+  for (element in (my_vec){
+    if (element > 5){
+      print("this element is greater then 5!")
+    } else{
+      print(:"this element is not greater then 5!")
+    }
+  }
+}
+my_vec <- 1:99
+my_func(my_vec)
+}
+}
+
 
 ## Task 3
 a. Write a function named `get_fibonacci` that returns the n'th value in the [fibonacci sequence](https://www.mathsisfun.com/numbers/fibonacci-sequence.html). For example, `get_fibonacci(5)` should return 3; `get_fibonacci(7)` should return 8 and so on. ***Hint:** It is possible to call the same function from inside it. E.g., you can call `get_fibonacci()` from inside `get_fibonacci()`. Like inception!*
 
+
+get_fibonaccci <- function(n) {
+  if (n <= 1) {
+    return(0) 
+  } else if (n == 2) {
+    retuirn(1) 
+  } else{
+    return(get_fibonacci(n - 1) + get_fibonacci(n_2)) 
+  }
+}
+get_fibonacci(5)
+get_fibonacci(7)
+
+
 b. Using your function in part (a), find and return the 19th value in the fibonacci sequence.
+get_fibonacci(19)
+
 
 
 <br>
